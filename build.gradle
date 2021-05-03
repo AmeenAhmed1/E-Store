@@ -24,3 +24,13 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext{
+    lifeCycleVersion = '2.3.1'
+    roomVersion = '2.3.0'
+    coroutinesVersion = '1.4.3'
+    retrofitVersion = '2.6.0'
+    okhttp3Version = '4.5.0'
+    navigationVersion = '2.3.5'
+    glideVersion = '4.12.0'
+}
