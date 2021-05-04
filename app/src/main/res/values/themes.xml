@@ -20,8 +20,21 @@
         <item name="android:background">@drawable/search_view</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:drawableStart">@drawable/icon_search</item>
-        <item name="android:drawablePadding">10dp</item>
-        <item name="android:padding">10dp</item>
+        <item name="android:drawablePadding">@dimen/dp_10</item>
+        <item name="android:padding">@dimen/dp_10</item>
         <item name="android:fontFamily">@font/sf_pro_display_regular</item>
     </style>
+
+    <style name="HeadLineTextViewCustomStyle" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="TextViewCustomStyle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:fontFamily">@font/sf_pro_display_bold</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
 </resources>

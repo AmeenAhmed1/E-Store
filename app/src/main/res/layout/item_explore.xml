@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:paddingEnd="@dimen/dp_25"
+    android:paddingBottom="@dimen/dp_50"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/exploreImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image_explore" />
+
+    <TextView
+        android:id="@+id/exploreTitleTextView"
+        style="@style/TextViewCustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/exploreImageView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/exploreImageView"
+        app:layout_constraintTop_toBottomOf="@+id/exploreImageView"
+        tools:text="Beo Play Speaker" />
+
+    <TextView
+        android:id="@+id/exploreDescTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        app:layout_constraintEnd_toEndOf="@+id/exploreTitleTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/exploreTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/exploreTitleTextView"
+        tools:text="Bang and Olufsen" />
+
+    <TextView
+        android:id="@+id/explorePriceTextView"
+        style="@style/TextViewCustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/green"
+        app:layout_constraintEnd_toEndOf="@+id/exploreDescTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/exploreDescTextView"
+        app:layout_constraintTop_toBottomOf="@+id/exploreDescTextView"
+        tools:text="$755" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_25"
+        android:backgroundTint="@color/pink"
+        android:visibility="invisible"
+        app:cardCornerRadius="@dimen/dp_8"
+        app:layout_constraintBottom_toTopOf="@+id/exploreTitleTextView"
+        app:layout_constraintEnd_toEndOf="@+id/exploreImageView"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@+id/exploreImageView"
+        app:layout_constraintTop_toTopOf="@+id/exploreImageView"
+        app:layout_constraintVertical_bias="0.05"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/exploreItemNewTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:text="@string/new_tag"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
