@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/exploreFragment"
+        android:title="@string/explore"
+        android:icon="@drawable/icon_explore" />
+
+    <item android:id="@+id/cartFragment"
+        android:title="@string/cart"
+        android:icon="@drawable/icon_cart" />
+
+
+    <item android:id="@+id/accountFragment"
+        android:title="@string/account"
+        android:icon="@drawable/icon_user" />
+
+
+</menu>
