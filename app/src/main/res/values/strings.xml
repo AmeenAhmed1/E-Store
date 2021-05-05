@@ -8,34 +8,6 @@
     <string name="see_all">See all</string>
     <string name="new_tag">New</string>
 
-
-    <!-- Start Categories Content -->
-    <string-array name="categoriesTitles">
-        <item>Men</item>
-        <item>Women</item>
-        <item>Devices</item>
-        <item>Gadgets</item>
-        <item>Gaming</item>
-    </string-array>
-    <!-- End Categories Content -->
-
-
-    <!-- Start BestSelling Content -->
-    <string-array name="bestSellingTitles">
-        <item>BeoPlay Speaker</item>
-        <item>Leather Wristwatch</item>
-        <item>Leather Wristwatch</item>
-    </string-array>
-    <string-array name="bestSellingDescription">
-        <item>Bang and Olufsen</item>
-        <item>Tag Heuer</item>
-        <item>Tag Heuer</item>
-    </string-array>
-    <string-array name="bestSellingPrice">
-        <item>$755</item>
-        <item>$450</item>
-        <item>$450</item>
-    </string-array>
-    <!-- End BestSelling Content -->
+    <string name="price">$%1$s</string>
 
 </resources>

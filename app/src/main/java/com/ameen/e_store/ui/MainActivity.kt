@@ -2,6 +2,8 @@ package com.ameen.e_store.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.fragment.NavHostFragment
@@ -9,7 +11,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ameen.e_store.R
 import com.ameen.e_store.adapter.RecyclerAdapter
+import com.ameen.e_store.data.DummyData
 import com.ameen.e_store.databinding.ActivityMainBinding
+import com.ameen.e_store.repository.ProductRepository
+import com.ameen.e_store.viewmodel.ProductViewModel
+import com.ameen.e_store.viewmodel.ViewModelProductProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
@@ -23,6 +29,9 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     private lateinit var navBottomBar: BottomNavigationView
     private lateinit var navController: NavController
 
+    //ViewModel
+    lateinit var viewModel: ProductViewModel
+    lateinit var repository: ProductRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +45,15 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         navController = navHostFragment.navController
         navBottomBar.setupWithNavController(navHostFragment.findNavController())
         navController.addOnDestinationChangedListener(this)
+
+
+        //init ViewModel
+        repository = ProductRepository()
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelProductProvider(repository)
+        ).get(ProductViewModel::class.java)
+
     }
 
     override fun onDestinationChanged(

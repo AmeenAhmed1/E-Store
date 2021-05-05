@@ -2,35 +2,55 @@ package com.ameen.e_store.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.ameen.e_store.data.model.CategoriesModel
 import com.ameen.e_store.databinding.ItemCategoryBinding
 import com.bumptech.glide.Glide
 
-class RecyclerAdapter(private val imageSet: List<Int>, private val nameSet: Array<String>) :
-    RecyclerView.Adapter<RecyclerAdapter.ViewHolder<Any?>>() {
+class RecyclerAdapter() : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
 
     private var _binding: ItemCategoryBinding? = null
 
-    inner class ViewHolder<T>(val binding: ItemCategoryBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding: ItemCategoryBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder<Any?> {
+    private val differCallBack = object : DiffUtil.ItemCallback<CategoriesModel>() {
+        override fun areContentsTheSame(
+            oldItem: CategoriesModel,
+            newItem: CategoriesModel
+        ): Boolean {
+            return oldItem == newItem
+        }
+
+        override fun areItemsTheSame(oldItem: CategoriesModel, newItem: CategoriesModel): Boolean {
+            return oldItem.categoryTitle == newItem.categoryTitle
+        }
+    }
+
+    val differ = AsyncListDiffer(this, differCallBack)
+
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         _binding =
             ItemCategoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(_binding!!)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder<Any?>, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+
+        val items = differ.currentList[position]
+
         holder.binding.apply {
-            itemText.text = nameSet[position]
+            itemText.text = items.categoryTitle
             Glide.with(_binding!!.root)
-                .load(imageSet[position])
+                .load(items.categoryIcon)
                 .centerInside()
                 .into(itemImage)
         }
     }
 
     override fun getItemCount(): Int {
-        return nameSet.size
+        return differ.currentList.size
     }
 }

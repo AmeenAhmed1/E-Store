@@ -7,4 +7,6 @@
     <dimen name="dp_10">10dp</dimen>
     <dimen name="dp_32">32dp</dimen>
     <dimen name="dp_25">25dp</dimen>
+    <dimen name="dp_180">180dp</dimen>
+    <dimen name="dp_250">250dp</dimen>
 </resources>

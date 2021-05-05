@@ -1,23 +1,34 @@
 package com.ameen.e_store.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.ameen.e_store.data.model.CategoriesModel
+import com.ameen.e_store.data.model.ProductModel
 import com.ameen.e_store.databinding.ItemExploreBinding
 import com.bumptech.glide.Glide
 
-class BestSellingAdapter(
-    private val imageSet: List<Int>,
-    private val titleSet: Array<String>,
-    private val desSet: Array<String>,
-    private val priceSet: Array<String>
-) :
-    RecyclerView.Adapter<BestSellingAdapter.ViewHolder>() {
+class BestSellingAdapter() : RecyclerView.Adapter<BestSellingAdapter.ViewHolder>() {
 
     private var _binding: ItemExploreBinding? = null
 
-    inner class ViewHolder(val binding: ItemExploreBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    inner class ViewHolder(val binding: ItemExploreBinding) : RecyclerView.ViewHolder(binding.root)
+
+    val differCallBack = object : DiffUtil.ItemCallback<ProductModel>() {
+        override fun areItemsTheSame(oldItem: ProductModel, newItem: ProductModel): Boolean {
+            return oldItem.productTitle == newItem.productTitle
+        }
+
+        override fun areContentsTheSame(oldItem: ProductModel, newItem: ProductModel): Boolean {
+            return oldItem == newItem
+        }
+
+    }
+
+    val differ = AsyncListDiffer(this, differCallBack)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         _binding = ItemExploreBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -25,18 +36,24 @@ class BestSellingAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val items = differ.currentList[position]
+
+        if (items.productStateNew)
+            holder.binding.exploreItemNewTag.visibility = View.VISIBLE
+        else
+            holder.binding.exploreItemNewTag.visibility = View.GONE
+
         holder.binding.apply {
-            exploreTitleTextView.text = titleSet[position]
-            exploreDescTextView.text = desSet[position]
-            explorePriceTextView.text = priceSet[position]
+            exploreTitleTextView.text = items.productTitle
+            exploreDescTextView.text = items.productDescription
+            explorePriceTextView.text = "$" + items.productPrice.toString()
             Glide.with(_binding!!.root)
-                .load(imageSet[position])
-                .centerInside()
+                .load(items.productImage)
                 .into(exploreImageView)
         }
     }
 
     override fun getItemCount(): Int {
-        return imageSet.size
+        return differ.currentList.size
     }
 }
