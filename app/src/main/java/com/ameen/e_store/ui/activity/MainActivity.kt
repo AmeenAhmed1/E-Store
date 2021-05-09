@@ -1,4 +1,4 @@
-package com.ameen.e_store.ui
+package com.ameen.e_store.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

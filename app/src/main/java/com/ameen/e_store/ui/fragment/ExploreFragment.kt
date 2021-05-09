@@ -14,7 +14,7 @@ import com.ameen.e_store.adapter.ProductsAdapter
 import com.ameen.e_store.adapter.BrandsAdapter
 import com.ameen.e_store.adapter.CategoriesAdapter
 import com.ameen.e_store.databinding.FragmentExploreBinding
-import com.ameen.e_store.ui.MainActivity
+import com.ameen.e_store.ui.activity.MainActivity
 import com.ameen.e_store.viewmodel.ProductViewModel
 
 class ExploreFragment : Fragment(R.layout.fragment_explore) {
