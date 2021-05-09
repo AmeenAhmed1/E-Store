@@ -2,7 +2,6 @@ package com.ameen.e_store.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -10,8 +9,6 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ameen.e_store.R
-import com.ameen.e_store.adapter.RecyclerAdapter
-import com.ameen.e_store.data.DummyData
 import com.ameen.e_store.databinding.ActivityMainBinding
 import com.ameen.e_store.repository.ProductRepository
 import com.ameen.e_store.viewmodel.ProductViewModel
@@ -45,7 +42,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         navController = navHostFragment.navController
         navBottomBar.setupWithNavController(navHostFragment.findNavController())
         navController.addOnDestinationChangedListener(this)
-
+        navBottomBar.itemIconTintList = null
 
         //init ViewModel
         repository = ProductRepository()

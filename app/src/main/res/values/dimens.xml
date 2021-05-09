@@ -9,4 +9,6 @@
     <dimen name="dp_25">25dp</dimen>
     <dimen name="dp_180">180dp</dimen>
     <dimen name="dp_250">250dp</dimen>
+    <dimen name="sp_12">12sp</dimen>
+    <dimen name="sp_16">16sp</dimen>
 </resources>

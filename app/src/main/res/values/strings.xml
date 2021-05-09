@@ -9,5 +9,7 @@
     <string name="new_tag">New</string>
 
     <string name="price">$%1$s</string>
+    <string name="featured_brands">Featured Brands</string>
+    <string name="recommended">Recommended</string>
 
 </resources>

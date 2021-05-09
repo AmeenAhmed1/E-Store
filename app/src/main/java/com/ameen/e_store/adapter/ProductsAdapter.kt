@@ -6,12 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.ameen.e_store.data.model.CategoriesModel
 import com.ameen.e_store.data.model.ProductModel
 import com.ameen.e_store.databinding.ItemExploreBinding
 import com.bumptech.glide.Glide
 
-class BestSellingAdapter() : RecyclerView.Adapter<BestSellingAdapter.ViewHolder>() {
+class ProductsAdapter() : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
 
     private var _binding: ItemExploreBinding? = null
 
@@ -54,6 +53,8 @@ class BestSellingAdapter() : RecyclerView.Adapter<BestSellingAdapter.ViewHolder>
     }
 
     override fun getItemCount(): Int {
+        //Return the first two products and the other in the
+        //See more page.
         return differ.currentList.size
     }
 }

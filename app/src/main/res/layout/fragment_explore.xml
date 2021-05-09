@@ -12,6 +12,32 @@
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/dp_8">
 
+
+        <TextView
+            android:id="@+id/brandsHeadLine"
+            style="@style/HeadLineTextViewCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_8"
+            android:text="@string/featured_brands"
+            app:layout_constraintEnd_toStartOf="@id/endGuideLine"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/bestSellingRecyclerView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/brandsRecycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@id/recommendHeadLineText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/brandsHeadLine"
+            tools:listitem="@layout/item_brand" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/endGuideLine"
             android:layout_width="wrap_content"
@@ -48,7 +74,7 @@
             android:layout_marginTop="@dimen/dp_16"
             android:orientation="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintEnd_toEndOf="@id/endGuideLine"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@id/startGuideLine"
             app:layout_constraintTop_toBottomOf="@id/categoriesHeadLineText"
             tools:listitem="@layout/item_category" />
@@ -71,7 +97,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_32"
+            android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
+            android:focusable="true"
             android:fontFamily="@font/sf_pro_display_regular"
             android:text="@string/see_all"
             android:textSize="12sp"
@@ -88,6 +116,48 @@
             app:layout_constraintEnd_toStartOf="@id/endGuideLine"
             app:layout_constraintStart_toStartOf="@id/startGuideLine"
             app:layout_constraintTop_toBottomOf="@id/bestSellingHeadLineText"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_explore" />
+
+        <TextView
+            android:id="@+id/recommendHeadLineText"
+            style="@style/HeadLineTextViewCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_32"
+            android:text="@string/recommended"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/brandsRecycler" />
+
+
+        <TextView
+            android:id="@+id/seeMoreRecommendText"
+            style="@style/TextViewCustomStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true"
+            android:fontFamily="@font/sf_pro_display_regular"
+            android:text="@string/see_all"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/recommendHeadLineText"
+            app:layout_constraintEnd_toStartOf="@id/endGuideLine"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@id/recommendHeadLineText"
+            app:layout_constraintTop_toTopOf="@id/recommendHeadLineText" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recommendRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_16"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintEnd_toStartOf="@id/endGuideLine"
+            app:layout_constraintStart_toStartOf="@id/startGuideLine"
+            app:layout_constraintTop_toBottomOf="@id/recommendHeadLineText"
             tools:itemCount="1"
             tools:listitem="@layout/item_explore" />
 

@@ -9,7 +9,7 @@ import com.ameen.e_store.data.model.CategoriesModel
 import com.ameen.e_store.databinding.ItemCategoryBinding
 import com.bumptech.glide.Glide
 
-class RecyclerAdapter() : RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class CategoriesAdapter() : RecyclerView.Adapter<CategoriesAdapter.ViewHolder>() {
 
     private var _binding: ItemCategoryBinding? = null
 

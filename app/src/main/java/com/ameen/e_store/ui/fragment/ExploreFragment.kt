@@ -5,14 +5,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ameen.e_store.R
-import com.ameen.e_store.adapter.BestSellingAdapter
-import com.ameen.e_store.adapter.RecyclerAdapter
+import com.ameen.e_store.adapter.ProductsAdapter
+import com.ameen.e_store.adapter.BrandsAdapter
+import com.ameen.e_store.adapter.CategoriesAdapter
 import com.ameen.e_store.databinding.FragmentExploreBinding
 import com.ameen.e_store.ui.MainActivity
 import com.ameen.e_store.viewmodel.ProductViewModel
@@ -29,8 +29,10 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
     private val binding get() = _binding!!
 
     //RecyclerView
-    private lateinit var recyclerAdapter: RecyclerAdapter
-    private lateinit var recyclerBestSellingAdapter: BestSellingAdapter
+    private lateinit var categoriesAdapter: CategoriesAdapter
+    private lateinit var productsAdapter: ProductsAdapter
+    private lateinit var brandsAdapter: BrandsAdapter
+    private lateinit var recommendedAdapter: ProductsAdapter
 
 
     override fun onCreateView(
@@ -56,28 +58,62 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
 
         productsViewModel = (activity as MainActivity).viewModel
 
+        initViewModel()
+
+        initRecycler()
+    }
+
+
+    private fun initViewModel() {
+
         //init ViewModels
         productsViewModel.categoriesData.observe(viewLifecycleOwner, Observer { resultList ->
-            recyclerAdapter.differ.submitList(resultList)
+            categoriesAdapter.differ.submitList(resultList)
         })
 
         productsViewModel.productsData.observe(viewLifecycleOwner, Observer { resultList ->
-            recyclerBestSellingAdapter.differ.submitList(resultList)
+            productsAdapter.differ.submitList(resultList)
         })
 
+        productsViewModel.brandsData.observe(viewLifecycleOwner, Observer { resultList ->
+            brandsAdapter.differ.submitList(resultList)
+        })
+
+        productsViewModel.recommendedData.observe(viewLifecycleOwner, Observer { resultList ->
+            recommendedAdapter.differ.submitList(resultList)
+        })
+    }
+
+
+    private fun initRecycler() {
+
         //init Recycler
-        recyclerAdapter = RecyclerAdapter()
+        categoriesAdapter = CategoriesAdapter()
         binding.categoriesRecycler.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
-            adapter = recyclerAdapter
+            adapter = categoriesAdapter
             hasFixedSize()
         }
 
         //init best selling recycler
-        recyclerBestSellingAdapter = BestSellingAdapter()
+        productsAdapter = ProductsAdapter()
         binding.bestSellingRecyclerView.apply {
             layoutManager = GridLayoutManager(activity, 2)
-            adapter = recyclerBestSellingAdapter
+            adapter = productsAdapter
+        }
+
+        //init brands recycler
+        brandsAdapter = BrandsAdapter()
+        binding.brandsRecycler.apply {
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
+            adapter = brandsAdapter
+        }
+
+        //init the recommended recycler
+        recommendedAdapter = ProductsAdapter()
+        binding.recommendRecyclerView.apply {
+            layoutManager = GridLayoutManager(activity, 2)
+            adapter = recommendedAdapter
         }
     }
 }

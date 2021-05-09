@@ -1,6 +1,7 @@
 package com.ameen.e_store.data
 
 import com.ameen.e_store.R
+import com.ameen.e_store.data.model.BrandModel
 import com.ameen.e_store.data.model.CategoriesModel
 import com.ameen.e_store.data.model.ProductModel
 
@@ -8,6 +9,7 @@ object DummyData {
 
     lateinit var categoriesList: MutableList<CategoriesModel>
     lateinit var productsList: MutableList<ProductModel>
+    lateinit var brandsList: MutableList<BrandModel>
 
     //Populate the Categories Data
     fun getCategoriesData(): MutableList<CategoriesModel> {
@@ -43,10 +45,48 @@ object DummyData {
                     450,
                     productStateNew = true
                 ),
-                ProductModel(R.drawable.image_explore, "BeoPlay Speaker", "Bang and Olufsen", 755)
+                ProductModel(R.drawable.image_explore, "BeoPlay Speaker", "Bang and Olufsen", 755),
+                ProductModel(
+                    R.drawable.image_explore,
+                    "BeoPlay Speaker",
+                    "Bang and Olufsen",
+                    755,
+                    productStateNew = true,
+                ),
+                ProductModel(
+                    R.drawable.image_explore,
+                    "BeoPlay Speaker",
+                    "Bang and Olufsen",
+                    755,
+                    productStateNew = true
+                ),
+                ProductModel(
+                    R.drawable.image_explore,
+                    "BeoPlay Speaker",
+                    "Bang and Olufsen",
+                    755,
+                    productStateNew = true
+                ),
             )
         )
 
         return productsList
+    }
+
+    //Populate brands data
+    fun getBrands(): MutableList<BrandModel> {
+
+        brandsList = mutableListOf()
+
+        brandsList.addAll(
+            listOf(
+                BrandModel(R.drawable.icon_beats, "Beats", 1124),
+                BrandModel(R.drawable.icon_apple, "Apple Inc.", 5693),
+                BrandModel(R.drawable.icon_b_o, "B&o", 3614),
+                BrandModel(R.drawable.icon_b_o, "B&o", 3614)
+            )
+        )
+
+        return brandsList
     }
 }

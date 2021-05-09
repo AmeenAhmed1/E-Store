@@ -3,7 +3,7 @@ package com.ameen.e_store.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ameen.e_store.data.DummyData
+import com.ameen.e_store.data.model.BrandModel
 import com.ameen.e_store.data.model.CategoriesModel
 import com.ameen.e_store.data.model.ProductModel
 import com.ameen.e_store.repository.ProductRepository
@@ -13,12 +13,15 @@ class ProductViewModel() : ViewModel() {
 
     val categoriesData: MutableLiveData<MutableList<CategoriesModel>> = MutableLiveData()
     val productsData: MutableLiveData<MutableList<ProductModel>> = MutableLiveData()
+    val brandsData: MutableLiveData<MutableList<BrandModel>> = MutableLiveData()
+    val recommendedData: MutableLiveData<MutableList<ProductModel>> = MutableLiveData()
 
     private val productRepository = ProductRepository()
 
     init {
         getCategories()
         getProducts()
+        getBrands()
     }
 
     fun getCategories() = viewModelScope.launch {
@@ -28,6 +31,12 @@ class ProductViewModel() : ViewModel() {
 
     fun getProducts() = viewModelScope.launch {
         val result = productRepository.getProducts()
-        productsData.postValue(result)
+        productsData.postValue(result.subList(0, 2)) //Send the first 2 elements as best selling items
+        recommendedData.postValue(result)
+    }
+
+    fun getBrands() = viewModelScope.launch {
+        val result = productRepository.getBrands()
+        brandsData.postValue(result)
     }
 }
