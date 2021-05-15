@@ -98,7 +98,7 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
         //init best selling recycler
         productsAdapter = ProductsAdapter()
         binding.bestSellingRecyclerView.apply {
-            layoutManager = GridLayoutManager(activity, 2)
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             adapter = productsAdapter
         }
 
@@ -112,7 +112,7 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
         //init the recommended recycler
         recommendedAdapter = ProductsAdapter()
         binding.recommendRecyclerView.apply {
-            layoutManager = GridLayoutManager(activity, 2)
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             adapter = recommendedAdapter
         }
     }

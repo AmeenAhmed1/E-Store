@@ -9,14 +9,12 @@ import com.ameen.e_store.data.model.ProductModel
 import com.ameen.e_store.repository.ProductRepository
 import kotlinx.coroutines.launch
 
-class ProductViewModel() : ViewModel() {
+class ProductViewModel(private val productRepository: ProductRepository) : ViewModel() {
 
     val categoriesData: MutableLiveData<MutableList<CategoriesModel>> = MutableLiveData()
     val productsData: MutableLiveData<MutableList<ProductModel>> = MutableLiveData()
     val brandsData: MutableLiveData<MutableList<BrandModel>> = MutableLiveData()
     val recommendedData: MutableLiveData<MutableList<ProductModel>> = MutableLiveData()
-
-    private val productRepository = ProductRepository()
 
     init {
         getCategories()
@@ -31,7 +29,12 @@ class ProductViewModel() : ViewModel() {
 
     fun getProducts() = viewModelScope.launch {
         val result = productRepository.getProducts()
-        productsData.postValue(result.subList(0, 2)) //Send the first 2 elements as best selling items
+        productsData.postValue(
+            result.subList(
+                0,
+                2
+            )
+        ) //Send the first 2 elements as best selling items
         recommendedData.postValue(result)
     }
 
