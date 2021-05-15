@@ -16,4 +16,7 @@
     <color name="pink">#E80057</color>
     <color name="green">#00C569</color>
     <color name="whiteTrans">#10000000</color>
+    <color name="gray">#F0F0F0</color>
+    <color name="greenTrans">#EDFBF4</color>
+    <color name="card_color">#F89234</color>
 </resources>

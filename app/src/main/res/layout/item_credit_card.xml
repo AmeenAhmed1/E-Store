@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/dp_16"
+    android:paddingBottom="@dimen/dp_16"
+    android:layout_margin="@dimen/dp_16"
+    android:background="@color/card_color">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/startGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="16dp"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/endGuideLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintGuide_end="16dp" />
+
+    <ImageView
+        android:id="@+id/cardIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        app:layout_constraintEnd_toStartOf="@id/endGuideLine"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_mastercard" />
+
+
+    <TextView
+        android:id="@+id/cardNumber"
+        style="@style/TextViewCustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_25"
+        android:text="4556-5674-3224-4543"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@id/endGuideLine"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+        app:layout_constraintTop_toBottomOf="@id/cardIcon" />
+
+    <TextView
+        android:id="@+id/cardHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:text="@string/card_holder"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+        app:layout_constraintTop_toBottomOf="@id/cardNumber" />
+
+    <TextView
+        android:id="@+id/cardHolderName"
+        style="@style/TextViewCustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ameen Essa"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/cardHolder"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@id/startGuideLine"
+        app:layout_constraintTop_toBottomOf="@id/cardHolder" />
+
+
+    <TextView
+        android:id="@+id/cardExpiry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:text="@string/expiry"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@id/cardHolder"
+        app:layout_constraintEnd_toStartOf="@id/endGuideLine"
+        app:layout_constraintTop_toTopOf="@id/cardHolder"
+        app:layout_constraintVertical_bias="1.0" />
+
+
+    <TextView
+        android:id="@+id/cardExpiryDate"
+        style="@style/TextViewCustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="09 - 25"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/cardHolderName"
+        app:layout_constraintEnd_toEndOf="@+id/cardExpiry"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cardExpiry"
+        app:layout_constraintTop_toBottomOf="@+id/cardExpiry" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

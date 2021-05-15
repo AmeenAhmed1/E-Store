@@ -112,12 +112,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_16"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toStartOf="@id/endGuideLine"
             app:layout_constraintStart_toStartOf="@id/startGuideLine"
             app:layout_constraintTop_toBottomOf="@id/bestSellingHeadLineText"
-            tools:itemCount="1"
-            tools:listitem="@layout/item_explore" />
+            tools:itemCount="2"
+            tools:listitem="@layout/item_explore"
+            tools:orientation="horizontal" />
 
         <TextView
             android:id="@+id/recommendHeadLineText"
@@ -154,12 +155,13 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_16"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintEnd_toStartOf="@id/endGuideLine"
             app:layout_constraintStart_toStartOf="@id/startGuideLine"
             app:layout_constraintTop_toBottomOf="@id/recommendHeadLineText"
-            tools:itemCount="1"
-            tools:listitem="@layout/item_explore" />
+            tools:itemCount="2"
+            tools:listitem="@layout/item_explore"
+            tools:orientation="horizontal" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -11,5 +11,19 @@
     <string name="price">$%1$s</string>
     <string name="featured_brands">Featured Brands</string>
     <string name="recommended">Recommended</string>
+    <string name="total">Total</string>
+    <string name="checkout">Checkout</string>
+    <string name="itemimagedescription">itemImageDescription</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="shipping_address">Shipping Address</string>
+    <string name="order_history">Order History</string>
+    <string name="track_order">Track Order</string>
+    <string name="cards">Cards</string>
+    <string name="notifications">Notifications</string>
+    <string name="logout">LogOut</string>
+    <string name="card_holder">Card Holder</string>
+    <string name="expiry">Expiry</string>
+    <string name="newButton">New</string>
+    <string name="cancelButton">Cancel</string>
 
 </resources>

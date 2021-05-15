@@ -7,13 +7,43 @@
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.ameen.e_store.ui.fragment.CartFragment"
-        android:label="SearchFragment" />
+        android:label="cartFragment"
+        tools:layout="@layout/fragment_cart"/>
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.ameen.e_store.ui.fragment.AccountFragment"
-        android:label="AccountFragment" />
+        android:label="AccountFragment"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_accountFragment_to_cardsFragment"
+            app:destination="@id/cardsFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_addressFragment"
+            app:destination="@id/addressFragment" />
+    </fragment>
     <fragment
         android:id="@+id/exploreFragment"
         android:name="com.ameen.e_store.ui.fragment.ExploreFragment"
-        android:label="ExploreFragment" />
+        android:label="ExploreFragment"
+        tools:layout="@layout/fragment_explore"/>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.ameen.e_store.ui.activity.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/splashScreen"
+        android:name="com.ameen.e_store.ui.activity.SplashScreen"
+        android:label="activity_splash_screen"
+        tools:layout="@layout/activity_splash_screen" />
+    <fragment
+        android:id="@+id/cardsFragment"
+        android:name="com.ameen.e_store.ui.fragment.CardsFragment"
+        android:label="CardsFragment"
+        tools:layout="@layout/fragment_cards"/>
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.ameen.e_store.ui.fragment.AddressFragment"
+        android:label="AddressFragment"
+        tools:layout="@layout/fragment_address"/>
 </navigation>
