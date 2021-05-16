@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/productTitleHeadLine"
+        style="@style/HeadLineTextViewCustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BeoPlay Speaker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/productDetailsHeadLine"
+        style="@style/TextViewCustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:text="@string/details"
+        app:layout_constraintEnd_toEndOf="@id/productTitleHeadLine"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productTitleHeadLine" />
+
+    <TextView
+        android:id="@+id/productDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:text="Nike Dri-FIT is a polyester fabric designed to help you keep dry so you can more comfortably work harder, longer."
+        android:textColor="@color/black"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintEnd_toEndOf="@id/productDetailsHeadLine"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productDetailsHeadLine" />
+
+    <TextView
+        android:id="@+id/productReviewHeadLine"
+        style="@style/TextViewCustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_32"
+        android:text="@string/reviews"
+        app:layout_constraintEnd_toEndOf="@id/productDescription"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productDescription" />
+
+    <TextView
+        android:id="@+id/productWriteReview"
+        android:textColor="@color/green"
+        android:fontFamily="@font/sf_pro_display_bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Write your review"
+        app:layout_constraintEnd_toEndOf="@id/productReviewHeadLine"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/productReviewHeadLine" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/reviewsRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/sp_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_review"
+        tools:itemCount="3"
+        app:layout_constraintTop_toBottomOf="@id/productWriteReview"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

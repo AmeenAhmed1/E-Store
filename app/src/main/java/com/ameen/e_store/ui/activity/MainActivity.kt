@@ -63,13 +63,13 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
     ) {
 
         when (destination.id) {
-            R.id.accountFragment -> {
-                binding!!.editTextSearch.visibility = View.GONE
-                binding!!.cameraImageButton.visibility = View.GONE
-            }
-            else -> {
+            R.id.exploreFragment -> {
                 binding!!.editTextSearch.visibility = View.VISIBLE
                 binding!!.cameraImageButton.visibility = View.VISIBLE
+            }
+            else -> {
+                binding!!.editTextSearch.visibility = View.GONE
+                binding!!.cameraImageButton.visibility = View.GONE
             }
         }
 

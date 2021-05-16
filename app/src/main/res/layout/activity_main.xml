@@ -25,10 +25,12 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="text"
+        android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@+id/cameraImageButton"
         app:layout_constraintStart_toStartOf="@id/startGuideLine"
         app:layout_constraintTop_toTopOf="@id/topGuideLine"
-        tools:text="Name" />
+        tools:text="Name"
+        tools:visibility="visible" />
 
     <ImageButton
         android:id="@+id/cameraImageButton"
@@ -37,10 +39,12 @@
         android:layout_marginEnd="16dp"
         android:background="@drawable/circle_view"
         android:backgroundTint="@color/green"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/editTextSearch"
         app:layout_constraintEnd_toEndOf="@id/endGuideLine"
         app:layout_constraintTop_toTopOf="@+id/editTextSearch"
-        app:srcCompat="@drawable/icon_camera" />
+        app:srcCompat="@drawable/icon_camera"
+        tools:visibility="visible" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/startGuideLine"

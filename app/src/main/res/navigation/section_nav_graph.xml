@@ -8,7 +8,7 @@
         android:id="@+id/cartFragment"
         android:name="com.ameen.e_store.ui.fragment.CartFragment"
         android:label="cartFragment"
-        tools:layout="@layout/fragment_cart"/>
+        tools:layout="@layout/fragment_cart" />
     <fragment
         android:id="@+id/accountFragment"
         android:name="com.ameen.e_store.ui.fragment.AccountFragment"
@@ -25,7 +25,13 @@
         android:id="@+id/exploreFragment"
         android:name="com.ameen.e_store.ui.fragment.ExploreFragment"
         android:label="ExploreFragment"
-        tools:layout="@layout/fragment_explore"/>
+        tools:layout="@layout/fragment_explore">
+        <action
+            android:id="@+id/action_exploreFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:launchSingleTop="false"
+            app:popUpToInclusive="false" />
+    </fragment>
     <activity
         android:id="@+id/mainActivity"
         android:name="com.ameen.e_store.ui.activity.MainActivity"
@@ -40,10 +46,41 @@
         android:id="@+id/cardsFragment"
         android:name="com.ameen.e_store.ui.fragment.CardsFragment"
         android:label="CardsFragment"
-        tools:layout="@layout/fragment_cards"/>
+        tools:layout="@layout/fragment_cards" />
     <fragment
         android:id="@+id/addressFragment"
         android:name="com.ameen.e_store.ui.fragment.AddressFragment"
         android:label="AddressFragment"
-        tools:layout="@layout/fragment_address"/>
+        tools:layout="@layout/fragment_address" />
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.ameen.e_store.ui.fragment.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_product_details">
+        <action
+            android:id="@+id/action_detailsFragment_to_writeReviewFragment"
+            app:destination="@id/writeReviewFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/writeReviewFragment"
+        android:name="com.ameen.e_store.ui.fragment.WriteReviewFragment"
+        android:label="WriteReviewFragment"
+        tools:layout="@layout/fragment_write_review" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.ameen.e_store.ui.fragment.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.ameen.e_store.ui.fragment.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_signup" />
 </navigation>

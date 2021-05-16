@@ -25,5 +25,19 @@
     <string name="expiry">Expiry</string>
     <string name="newButton">New</string>
     <string name="cancelButton">Cancel</string>
+    <string name="details">Details</string>
+    <string name="reviews">Reviews</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="tell_us_your_experience">Tell us your experience</string>
+    <string name="send">Send</string>
+    <string name="welcome">Welcome,</string>
+    <string name="sign_in_to_continue">Sign in to Continue</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_in_with_facebook">Sign In with Facebook</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="name">Name</string>
 
 </resources>
