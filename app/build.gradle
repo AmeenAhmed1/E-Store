@@ -78,6 +78,4 @@ dependencies {
     implementation "com.github.bumptech.glide:glide:$glideVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
 
-    //Stepper
-    implementation 'com.github.acefalobi:android-stepper:0.2.2'
 }

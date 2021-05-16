@@ -1,6 +1,8 @@
 package com.ameen.e_store.ui.activity
 
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
@@ -14,6 +16,7 @@ import com.ameen.e_store.repository.ProductRepository
 import com.ameen.e_store.viewmodel.ProductViewModel
 import com.ameen.e_store.viewmodel.ViewModelProductProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
 
@@ -58,5 +61,17 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         destination: NavDestination,
         arguments: Bundle?
     ) {
+
+        when (destination.id) {
+            R.id.accountFragment -> {
+                binding!!.editTextSearch.visibility = View.GONE
+                binding!!.cameraImageButton.visibility = View.GONE
+            }
+            else -> {
+                binding!!.editTextSearch.visibility = View.VISIBLE
+                binding!!.cameraImageButton.visibility = View.VISIBLE
+            }
+        }
+
     }
 }

@@ -52,4 +52,13 @@
         <item name="android:paddingEnd">@dimen/dp_25</item>
     </style>
 
+    <style name="AccountItemStyle">
+        <item name="android:padding">@dimen/dp_16</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+    </style>
+
 </resources>
