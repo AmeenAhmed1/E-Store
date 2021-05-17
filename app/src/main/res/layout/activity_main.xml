@@ -10,7 +10,7 @@
         android:id="@+id/nav_bottom"
         android:layout_width="0dp"
         android:layout_height="84dp"
-        app:labelVisibilityMode="unlabeled"
+        app:labelVisibilityMode="selected"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

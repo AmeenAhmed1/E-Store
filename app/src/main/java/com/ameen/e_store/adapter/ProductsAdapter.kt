@@ -1,8 +1,10 @@
 package com.ameen.e_store.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -11,6 +13,8 @@ import com.ameen.e_store.databinding.ItemExploreBinding
 import com.bumptech.glide.Glide
 
 class ProductsAdapter() : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
+
+    private val TAG = "ProductsAdapter"
 
     private var _binding: ItemExploreBinding? = null
 
@@ -37,11 +41,15 @@ class ProductsAdapter() : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val items = differ.currentList[position]
 
-        if (items.productStateNew)
-            holder.binding.exploreItemNewTag.visibility = View.VISIBLE
-        else
-            holder.binding.exploreItemNewTag.visibility = View.GONE
+        //Log.i(TAG, "onBindViewHolder: ${items.productStateNew}")
 
+        if (items.productStateNew) {
+            Log.i(TAG, "onBindViewHolder: True")
+            holder.binding.productState.exploreItemNewTag.visibility = View.VISIBLE
+        } else {
+            Log.i(TAG, "onBindViewHolder: False")
+            holder.binding.productState.exploreItemNewTag.visibility = View.GONE
+        }
         holder.binding.apply {
             exploreTitleTextView.text = items.productTitle
             exploreDescTextView.text = items.productDescription
@@ -50,11 +58,19 @@ class ProductsAdapter() : RecyclerView.Adapter<ProductsAdapter.ViewHolder>() {
                 .load(items.productImage)
                 .into(exploreImageView)
         }
+
+        holder.itemView.setOnClickListener { onItemClickListener?.let { it(items) } }
     }
 
     override fun getItemCount(): Int {
         //Return the first two products and the other in the
         //See more page.
         return differ.currentList.size
+    }
+
+
+    private var onItemClickListener: ((ProductModel) -> Unit)? = null
+    fun onItemClicked(listner: (ProductModel) -> Unit) {
+        onItemClickListener = listner
     }
 }

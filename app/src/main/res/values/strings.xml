@@ -39,5 +39,6 @@
     <string name="sign_in_with_facebook">Sign In with Facebook</string>
     <string name="sign_up">Sign Up</string>
     <string name="name">Name</string>
+    <string name="no_reviews">No Reviews</string>
 
 </resources>

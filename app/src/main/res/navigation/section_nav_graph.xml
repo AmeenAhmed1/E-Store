@@ -16,10 +16,21 @@
         tools:layout="@layout/fragment_account">
         <action
             android:id="@+id/action_accountFragment_to_cardsFragment"
-            app:destination="@id/cardsFragment" />
+            app:destination="@id/cardsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
         <action
             android:id="@+id/action_accountFragment_to_addressFragment"
-            app:destination="@id/addressFragment" />
+            app:destination="@id/addressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="userData"
+            app:argType="com.ameen.e_store.data.model.UserModel" />
     </fragment>
     <fragment
         android:id="@+id/exploreFragment"
@@ -29,7 +40,11 @@
         <action
             android:id="@+id/action_exploreFragment_to_detailsFragment"
             app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
             app:launchSingleTop="false"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
             app:popUpToInclusive="false" />
     </fragment>
     <activity
@@ -46,12 +61,20 @@
         android:id="@+id/cardsFragment"
         android:name="com.ameen.e_store.ui.fragment.CardsFragment"
         android:label="CardsFragment"
-        tools:layout="@layout/fragment_cards" />
+        tools:layout="@layout/fragment_cards" >
+        <argument
+            android:name="userCard"
+            app:argType="com.ameen.e_store.data.model.UserModel" />
+    </fragment>
     <fragment
         android:id="@+id/addressFragment"
         android:name="com.ameen.e_store.ui.fragment.AddressFragment"
         android:label="AddressFragment"
-        tools:layout="@layout/fragment_address" />
+        tools:layout="@layout/fragment_address" >
+        <argument
+            android:name="userAddress"
+            app:argType="com.ameen.e_store.data.model.UserModel" />
+    </fragment>
     <fragment
         android:id="@+id/detailsFragment"
         android:name="com.ameen.e_store.ui.fragment.DetailsFragment"
@@ -63,6 +86,9 @@
         <action
             android:id="@+id/action_detailsFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
+        <argument
+            android:name="productDetails"
+            app:argType="com.ameen.e_store.data.model.ProductModel" />
     </fragment>
     <fragment
         android:id="@+id/writeReviewFragment"

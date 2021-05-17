@@ -57,29 +57,17 @@
         app:layout_constraintTop_toBottomOf="@+id/exploreDescTextView"
         tools:text="$755" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/exploreItemNewTag"
-        android:layout_width="@dimen/dp_50"
-        android:layout_height="@dimen/dp_25"
-        android:backgroundTint="@color/pink"
-        android:visibility="invisible"
-        app:cardCornerRadius="@dimen/dp_8"
-        app:layout_constraintBottom_toTopOf="@+id/exploreTitleTextView"
-        app:layout_constraintEnd_toEndOf="@+id/exploreImageView"
+    <include
+        android:id="@+id/productState"
+        layout="@layout/item_new_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/exploreImageView"
+        app:layout_constraintEnd_toEndOf="@id/exploreImageView"
         app:layout_constraintHorizontal_bias="0.9"
-        app:layout_constraintStart_toStartOf="@+id/exploreImageView"
-        app:layout_constraintTop_toTopOf="@+id/exploreImageView"
-        app:layout_constraintVertical_bias="0.05"
-        tools:visibility="visible">
+        app:layout_constraintStart_toStartOf="@id/exploreImageView"
+        app:layout_constraintTop_toTopOf="@id/exploreImageView"
+        app:layout_constraintVertical_bias="0.05" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/sf_pro_display_regular"
-            android:text="@string/new_tag"
-            android:textColor="@color/white"
-            android:textSize="12sp" />
 
-    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

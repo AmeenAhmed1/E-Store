@@ -7,12 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ameen.e_store.R
 import com.ameen.e_store.adapter.ProductsAdapter
 import com.ameen.e_store.adapter.BrandsAdapter
 import com.ameen.e_store.adapter.CategoriesAdapter
+import com.ameen.e_store.data.model.ProductModel
 import com.ameen.e_store.databinding.FragmentExploreBinding
 import com.ameen.e_store.ui.activity.MainActivity
 import com.ameen.e_store.viewmodel.ProductViewModel
@@ -97,6 +100,11 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
 
         //init best selling recycler
         productsAdapter = ProductsAdapter()
+        productsAdapter.onItemClicked {
+            navigateToDetails(it)
+        }
+
+        //init bestSelling recycler
         binding.bestSellingRecyclerView.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             adapter = productsAdapter
@@ -111,9 +119,21 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
 
         //init the recommended recycler
         recommendedAdapter = ProductsAdapter()
+        recommendedAdapter.onItemClicked {
+            navigateToDetails(it)
+        }
         binding.recommendRecyclerView.apply {
             layoutManager = LinearLayoutManager(activity, LinearLayoutManager.HORIZONTAL, false)
             adapter = recommendedAdapter
         }
+    }
+
+    private fun navigateToDetails(product: ProductModel) {
+        val bundle = Bundle()
+        bundle.putSerializable("productDetails", product)
+        findNavController().navigate(
+            R.id.action_exploreFragment_to_detailsFragment,
+            bundle
+        )
     }
 }

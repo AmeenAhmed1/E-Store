@@ -9,4 +9,6 @@ class ProductRepository() {
     fun getProducts() = DummyData.getProducts()
 
     fun getBrands() = DummyData.getBrands()
+
+    fun getUser() = DummyData.getUserData()
 }

@@ -81,6 +81,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/addressSection"
                 style="@style/AccountItemStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -197,6 +198,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/cardSection"
                 style="@style/AccountItemStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">

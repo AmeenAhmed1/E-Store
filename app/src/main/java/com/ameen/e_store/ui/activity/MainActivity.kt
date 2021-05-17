@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ameen.e_store.R
+import com.ameen.e_store.data.model.UserModel
 import com.ameen.e_store.databinding.ActivityMainBinding
 import com.ameen.e_store.repository.ProductRepository
 import com.ameen.e_store.viewmodel.ProductViewModel
@@ -66,10 +70,19 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             R.id.exploreFragment -> {
                 binding!!.editTextSearch.visibility = View.VISIBLE
                 binding!!.cameraImageButton.visibility = View.VISIBLE
+                binding!!.navBottom.visibility = View.VISIBLE
             }
+
+            R.id.cartFragment, R.id.accountFragment -> {
+                binding!!.editTextSearch.visibility = View.GONE
+                binding!!.cameraImageButton.visibility = View.GONE
+                binding!!.navBottom.visibility = View.VISIBLE
+            }
+
             else -> {
                 binding!!.editTextSearch.visibility = View.GONE
                 binding!!.cameraImageButton.visibility = View.GONE
+                binding!!.navBottom.visibility = View.GONE
             }
         }
 
