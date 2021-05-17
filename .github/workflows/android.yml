@@ -2,13 +2,14 @@ name: Android CI
 
 on:
   push:
+    tags: 
+      - 'v*'
     branches: [ master, developing ]
   pull_request:
     branches: [ master ]
 
 jobs:
-  build:
-
+  tests:
     runs-on: ubuntu-latest
     
     steps:
@@ -27,3 +28,19 @@ jobs:
 
       - name: Build with Gradle ⏳
         run: ./gradlew build
+        
+  build:
+     needs: [ tests ]
+     runs-on: ubuntu-latest
+     steps:
+      # 1
+      - name: Checkout code
+        uses: actions/checkout@v2
+      # 2
+      - name: Generate Debug APK
+        run: ./gradlew assembleDebug
+      
+      - uses: actions/upload-artifact@master
+        with:
+          name: debug.apk
+          path: ${{steps.sign_app.outputs.signedReleaseFile}}
