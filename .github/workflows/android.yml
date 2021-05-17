@@ -43,4 +43,4 @@ jobs:
       - uses: actions/upload-artifact@master
         with:
           name: debug.apk
-          path: ${{steps.sign_app.outputs.signedReleaseFile}}
+          path: app/build/outputs/apk/debug/debug.apk
