@@ -5,14 +5,14 @@ A Simple E-Commerce App 📱 built to demonstrate the use of modern android arch
 
 ## UI Design 🎨
 
-***Click to View Commerce app Design from below 👇***
+***Click to View Commerce app Design from below 👇*** <br/>
 [![E-Store](https://img.shields.io/badge/Desgin-AdobeXD-lightgrey)](https://www.behance.net/gallery/74658777/E-Commerce-UI-Kit-FREE)
 
 <br />
 
 ## Screens
 Explore | Explore-Scroll | Details | Review | Account | Cards | Address
---- | --- | --- |--- |--- |--- |--- |---
+--- | --- | --- | --- | --- | --- | ---
 ![](screens/explore.jpg) | ![](screens/explore2.jpg) | ![](screens/details.jpg) | ![](screens/review.jpg) | ![](screens/account.jpg) | ![](screens/cards.jpg) | ![](screens/address.jpg)
 <br />
 
