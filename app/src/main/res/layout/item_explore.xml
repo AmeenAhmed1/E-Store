@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingEnd="@dimen/dp_25"
+    android:paddingBottom="@dimen/dp_50">
+
+    <ImageView
+        android:id="@+id/exploreImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/image_explore" />
+
+    <TextView
+        android:id="@+id/exploreTitleTextView"
+        style="@style/TextViewCustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="@+id/exploreImageView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/exploreImageView"
+        app:layout_constraintTop_toBottomOf="@+id/exploreImageView"
+        tools:text="Beo Play Speaker" />
+
+    <TextView
+        android:id="@+id/exploreDescTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_4"
+        android:ellipsize="end"
+        android:maxLines="2"
+        app:layout_constraintEnd_toEndOf="@+id/exploreTitleTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/exploreTitleTextView"
+        app:layout_constraintTop_toBottomOf="@+id/exploreTitleTextView"
+        tools:text="Bang and Olufsen" />
+
+    <TextView
+        android:id="@+id/explorePriceTextView"
+        style="@style/TextViewCustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/green"
+        app:layout_constraintEnd_toEndOf="@+id/exploreDescTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/exploreDescTextView"
+        app:layout_constraintTop_toBottomOf="@+id/exploreDescTextView"
+        tools:text="$755" />
+
+    <include
+        android:id="@+id/productState"
+        layout="@layout/item_new_state"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/exploreImageView"
+        app:layout_constraintEnd_toEndOf="@id/exploreImageView"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="@id/exploreImageView"
+        app:layout_constraintTop_toTopOf="@id/exploreImageView"
+        app:layout_constraintVertical_bias="0.05" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

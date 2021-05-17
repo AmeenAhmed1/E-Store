@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/section_nav_graph"
+    app:startDestination="@id/exploreFragment">
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.ameen.e_store.ui.fragment.CartFragment"
+        android:label="cartFragment"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.ameen.e_store.ui.fragment.AccountFragment"
+        android:label="AccountFragment"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_accountFragment_to_cardsFragment"
+            app:destination="@id/cardsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_accountFragment_to_addressFragment"
+            app:destination="@id/addressFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <argument
+            android:name="userData"
+            app:argType="com.ameen.e_store.data.model.UserModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/exploreFragment"
+        android:name="com.ameen.e_store.ui.fragment.ExploreFragment"
+        android:label="ExploreFragment"
+        tools:layout="@layout/fragment_explore">
+        <action
+            android:id="@+id/action_exploreFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:launchSingleTop="false"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.ameen.e_store.ui.activity.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+    <activity
+        android:id="@+id/splashScreen"
+        android:name="com.ameen.e_store.ui.activity.SplashScreen"
+        android:label="activity_splash_screen"
+        tools:layout="@layout/activity_splash_screen" />
+    <fragment
+        android:id="@+id/cardsFragment"
+        android:name="com.ameen.e_store.ui.fragment.CardsFragment"
+        android:label="CardsFragment"
+        tools:layout="@layout/fragment_cards" >
+        <argument
+            android:name="userCard"
+            app:argType="com.ameen.e_store.data.model.UserModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/addressFragment"
+        android:name="com.ameen.e_store.ui.fragment.AddressFragment"
+        android:label="AddressFragment"
+        tools:layout="@layout/fragment_address" >
+        <argument
+            android:name="userAddress"
+            app:argType="com.ameen.e_store.data.model.UserModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.ameen.e_store.ui.fragment.DetailsFragment"
+        android:label="DetailsFragment"
+        tools:layout="@layout/fragment_product_details">
+        <action
+            android:id="@+id/action_detailsFragment_to_writeReviewFragment"
+            app:destination="@id/writeReviewFragment" />
+        <action
+            android:id="@+id/action_detailsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="productDetails"
+            app:argType="com.ameen.e_store.data.model.ProductModel" />
+    </fragment>
+    <fragment
+        android:id="@+id/writeReviewFragment"
+        android:name="com.ameen.e_store.ui.fragment.WriteReviewFragment"
+        android:label="WriteReviewFragment"
+        tools:layout="@layout/fragment_write_review" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.ameen.e_store.ui.fragment.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.ameen.e_store.ui.fragment.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_signup" />
+</navigation>

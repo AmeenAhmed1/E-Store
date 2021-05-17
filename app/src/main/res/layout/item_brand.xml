@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/dp_16"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:padding="@dimen/dp_8">
+
+    <ImageView
+        android:id="@+id/brandImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_beats" />
+
+    <TextView
+        android:id="@+id/brandTitle"
+        style="@style/TextViewCustomStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_16"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintStart_toEndOf="@+id/brandImageView"
+        app:layout_constraintTop_toTopOf="@+id/brandImageView"
+        tools:text="Beats" />
+
+    <TextView
+        android:id="@+id/brandProducts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/sf_pro_display_regular"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toBottomOf="@+id/brandImageView"
+        app:layout_constraintStart_toStartOf="@+id/brandTitle"
+        app:layout_constraintTop_toBottomOf="@+id/brandTitle"
+        tools:text="5620 Products" />
+</androidx.constraintlayout.widget.ConstraintLayout>

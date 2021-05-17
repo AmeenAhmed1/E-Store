@@ -1,3 +1,44 @@
 <resources>
     <string name="app_name">E-Store</string>
+    <string name="account">Account</string>
+    <string name="cart">Cart</string>
+    <string name="explore">Explore</string>
+    <string name="categories">Categories</string>
+    <string name="best_selling">Best Selling</string>
+    <string name="see_all">See all</string>
+    <string name="new_tag">New</string>
+
+    <string name="price">$%1$s</string>
+    <string name="featured_brands">Featured Brands</string>
+    <string name="recommended">Recommended</string>
+    <string name="total">Total</string>
+    <string name="checkout">Checkout</string>
+    <string name="itemimagedescription">itemImageDescription</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="shipping_address">Shipping Address</string>
+    <string name="order_history">Order History</string>
+    <string name="track_order">Track Order</string>
+    <string name="cards">Cards</string>
+    <string name="notifications">Notifications</string>
+    <string name="logout">LogOut</string>
+    <string name="card_holder">Card Holder</string>
+    <string name="expiry">Expiry</string>
+    <string name="newButton">New</string>
+    <string name="cancelButton">Cancel</string>
+    <string name="details">Details</string>
+    <string name="reviews">Reviews</string>
+    <string name="add_to_cart">Add to cart</string>
+    <string name="tell_us_your_experience">Tell us your experience</string>
+    <string name="send">Send</string>
+    <string name="welcome">Welcome,</string>
+    <string name="sign_in_to_continue">Sign in to Continue</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="forget_password">Forget Password?</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_in_with_facebook">Sign In with Facebook</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="name">Name</string>
+    <string name="no_reviews">No Reviews</string>
+
 </resources>

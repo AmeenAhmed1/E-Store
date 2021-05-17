@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:autoTransition="animateToEnd"
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="1300">
+        <KeyFrameSet>
+            <KeyAttribute
+                android:scaleX="1.0"
+                motion:framePosition="0"
+                motion:motionTarget="@+id/splashImageView" />
+            <KeyAttribute
+                android:scaleY="1.0"
+                motion:framePosition="0"
+                motion:motionTarget="@+id/splashImageView" />
+            <KeyAttribute
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                motion:framePosition="50"
+                motion:motionTarget="@id/splashImageView" />
+            <KeyAttribute
+                android:scaleX="0.7"
+                android:scaleY="0.7"
+                motion:framePosition="70"
+                motion:motionTarget="@id/splashImageView" />
+            <KeyAttribute
+                android:scaleX="30"
+                android:scaleY="30"
+                motion:framePosition="100"
+                motion:motionTarget="@id/splashImageView" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start"></ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end"></ConstraintSet>
+</MotionScene>
