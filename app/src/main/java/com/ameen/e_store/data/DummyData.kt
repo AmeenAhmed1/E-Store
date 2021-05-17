@@ -143,8 +143,8 @@ object DummyData {
 
 
     fun getUserData(): UserModel {
-        val card = CardModel(12334675812349876, "Ameen Essa", "12 - 9", CardTypeEnum.MASTER_CARD)
-        val address1 = AddressModel("Home", "Home Address Description Flat No.50")
+        val card = CardModel(1233467581234987, "Ameen Essa", "12 - 9", CardTypeEnum.MASTER_CARD)
+        val address1 = AddressModel("Home", "Home Address Description Flat No.50", true)
         val address2 = AddressModel("Work", "Work Address 5002 St, Floor No.2, Flat No.12")
         userModel = UserModel(
             "123",

@@ -1,5 +1,6 @@
 package com.ameen.e_store.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
@@ -9,6 +10,8 @@ import com.ameen.e_store.data.model.CardModel
 import com.ameen.e_store.databinding.ItemCreditCardBinding
 
 class CardAdapter() : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
+
+    private val TAG = "CardAdapter"
 
     private var _binding: ItemCreditCardBinding? = null
 
@@ -38,7 +41,8 @@ class CardAdapter() : RecyclerView.Adapter<CardAdapter.ViewHolder>() {
         val card = diff.currentList[position]
 
         holder.binding.apply {
-            cardNumber.text = card.cardNumber.toString()
+            cardNumber.text =
+                card.cardNumber.toString().chunked(4).joinToString(separator = "     ")
             cardHolderName.text = card.cardHolderName
             cardExpiryDate.text = card.cardExpiryDate
         }

@@ -15,6 +15,7 @@ import com.ameen.e_store.R
 import com.ameen.e_store.data.model.UserModel
 import com.ameen.e_store.databinding.FragmentAccountBinding
 import com.ameen.e_store.repository.ProductRepository
+import com.ameen.e_store.ui.activity.MainActivity
 import com.ameen.e_store.viewmodel.ProductViewModel
 import com.ameen.e_store.viewmodel.ViewModelProductProvider
 import kotlinx.coroutines.launch
@@ -33,7 +34,6 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
 
     //ViewModel
     lateinit var viewModel: ProductViewModel
-    lateinit var repository: ProductRepository
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,11 +43,6 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
 
         //init ViewModel
         initViewModel()
-
-        viewModel.getUserData()
-        viewModel.userData.observe(viewLifecycleOwner, Observer {
-            user = it
-        })
 
         _binding = FragmentAccountBinding.inflate(inflater, container, false)
         return binding!!.root
@@ -64,7 +59,7 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
             accountProfileEmail.text = user!!.userEmail
             cardSection.setOnClickListener {
                 val bundle = Bundle()
-                bundle.putSerializable("userData", user)
+                bundle.putSerializable("userCard", user)
                 findNavController().navigate(
                     R.id.action_accountFragment_to_cardsFragment,
                     bundle
@@ -73,7 +68,7 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
 
             addressSection.setOnClickListener {
                 val bundle = Bundle()
-                bundle.putSerializable("userData", user)
+                bundle.putSerializable("userAddress", user)
                 findNavController().navigate(
                     R.id.action_accountFragment_to_addressFragment,
                     bundle
@@ -83,10 +78,14 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
     }
 
     private fun initViewModel() {
-        repository = ProductRepository()
-        viewModel = ViewModelProvider(
-            this,
-            ViewModelProductProvider(repository)
-        ).get(ProductViewModel::class.java)
+
+        viewModel = (activity as MainActivity).viewModel
+
+        user = viewModel.userData.value
+        Log.i(TAG, "initViewModel: ")
+        viewModel.userData.observe(viewLifecycleOwner, Observer {
+            Log.i(TAG, "getUserData: $it")
+            user = it
+        })
     }
 }

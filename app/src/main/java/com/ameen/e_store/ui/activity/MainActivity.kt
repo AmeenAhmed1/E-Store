@@ -73,7 +73,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
                 binding!!.navBottom.visibility = View.VISIBLE
             }
 
-            R.id.cartFragment, R.id.accountFragment -> {
+            R.id.cartFragment, R.id.accountFragment, R.id.cardsFragment, R.id.addressFragment -> {
                 binding!!.editTextSearch.visibility = View.GONE
                 binding!!.cameraImageButton.visibility = View.GONE
                 binding!!.navBottom.visibility = View.VISIBLE

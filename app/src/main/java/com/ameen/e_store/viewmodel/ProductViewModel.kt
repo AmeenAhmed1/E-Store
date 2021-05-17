@@ -22,6 +22,7 @@ class ProductViewModel(private val productRepository: ProductRepository) : ViewM
         getCategories()
         getProducts()
         getBrands()
+        getUserData()
     }
 
     fun getCategories() = viewModelScope.launch {
