@@ -11,5 +11,6 @@ data class ProductModel(
     val productCategory: CategoriesModel? = null,
     val productBrand: BrandModel? = null,
     val productStateNew: Boolean = false,
-    val productReviews: List<ReviewModel>? = null
+    val productReviews: List<ReviewModel>? = null,
+    var productCountInCart: Int = 0
 ) : Serializable

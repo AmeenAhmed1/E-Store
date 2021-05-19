@@ -1,5 +1,6 @@
 package com.ameen.e_store.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,11 +13,14 @@ import kotlinx.coroutines.launch
 
 class ProductViewModel(private val productRepository: ProductRepository) : ViewModel() {
 
+    private val TAG = "ProductViewModel"
+
     val categoriesData: MutableLiveData<MutableList<CategoriesModel>> = MutableLiveData()
     val productsData: MutableLiveData<MutableList<ProductModel>> = MutableLiveData()
     val brandsData: MutableLiveData<MutableList<BrandModel>> = MutableLiveData()
     val recommendedData: MutableLiveData<MutableList<ProductModel>> = MutableLiveData()
     val userData: MutableLiveData<UserModel> = MutableLiveData()
+    val cartData: MutableLiveData<List<ProductModel>> = MutableLiveData()
 
     init {
         getCategories()
@@ -49,5 +53,11 @@ class ProductViewModel(private val productRepository: ProductRepository) : ViewM
     fun getUserData() = viewModelScope.launch {
         val result = productRepository.getUser()
         userData.postValue(result)
+    }
+
+    fun getCartData() = viewModelScope.launch {
+        Log.i(TAG, "getCartData: ${recommendedData.value}")
+        val result = productRepository.getCart(recommendedData.value!!)
+        cartData.postValue(result)
     }
 }

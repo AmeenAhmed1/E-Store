@@ -1,5 +1,6 @@
 package com.ameen.e_store.data
 
+import android.util.Log
 import com.ameen.e_store.R
 import com.ameen.e_store.data.model.*
 
@@ -10,6 +11,9 @@ object DummyData {
     lateinit var brandsList: MutableList<BrandModel>
     lateinit var reviewList: MutableList<ReviewModel>
     lateinit var userModel: UserModel
+    lateinit var cartList: MutableList<ProductModel>
+
+    private const val TAG = "DummyData"
 
     //Populate the Categories Data
     fun getCategoriesData(): MutableList<CategoriesModel> {
@@ -67,6 +71,7 @@ object DummyData {
                     "Bang and Olufsen",
                     755,
                     productStateNew = true,
+                    productCountInCart = 1
                 ),
                 ProductModel(
                     5,
@@ -79,11 +84,12 @@ object DummyData {
                 ),
                 ProductModel(
                     6,
-                    R.drawable.image_explore,
-                    "BeoPlay Speaker",
-                    "Bang and Olufsen",
-                    755,
-                    productStateNew = true
+                    R.drawable.image_airpods,
+                    "Air pods",
+                    "Air Pods Pro 2",
+                    1050,
+                    productStateNew = true,
+                    productCountInCart = 3
                 ),
             )
         )
@@ -156,6 +162,20 @@ object DummyData {
         )
 
         return userModel
+    }
+
+
+    fun getCartData(productsCart: MutableList<ProductModel>): MutableList<ProductModel> {
+
+        cartList = mutableListOf()
+
+        for (isItemInCart in productsCart)
+            if (isItemInCart.productCountInCart != 0) {
+                Log.i(TAG, "getCartData: ${isItemInCart.productId}")
+                cartList.add(isItemInCart)
+            }
+
+        return cartList
     }
 
 }

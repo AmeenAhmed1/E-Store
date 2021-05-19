@@ -1,6 +1,7 @@
 package com.ameen.e_store.repository
 
 import com.ameen.e_store.data.DummyData
+import com.ameen.e_store.data.model.ProductModel
 
 class ProductRepository() {
 
@@ -11,4 +12,6 @@ class ProductRepository() {
     fun getBrands() = DummyData.getBrands()
 
     fun getUser() = DummyData.getUserData()
+
+    fun getCart(productCart: MutableList<ProductModel>) = DummyData.getCartData(productCart)
 }
