@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cartItemRecycler"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:paddingTop="@dimen/dp_16"
@@ -13,7 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item_checkout" />
+        tools:listitem="@layout/item_cart" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/checkoutCard"
