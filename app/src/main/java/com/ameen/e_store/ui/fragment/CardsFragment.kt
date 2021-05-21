@@ -42,7 +42,7 @@ class CardsFragment : Fragment(R.layout.fragment_cards) {
         selectedUserCard = args.userCard
 
         cardAdapter = CardAdapter()
-        cardAdapter.diff.submitList(selectedUserCard.userCards)
+        //cardAdapter.diff.submitList(selectedUserCard.userCards)
 
         binding!!.cardsRecycler.apply {
             adapter = cardAdapter

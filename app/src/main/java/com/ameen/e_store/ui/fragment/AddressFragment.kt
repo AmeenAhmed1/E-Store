@@ -41,7 +41,7 @@ class AddressFragment : Fragment(R.layout.fragment_address) {
         selectedUserAddress = args.userAddress
 
         addressAdapter = AddressAdapter()
-        addressAdapter.differ.submitList(selectedUserAddress.userAddressModel)
+        //addressAdapter.differ.submitList(selectedUserAddress.userAddressModel)
 
         binding!!.addressRecycler.apply {
             adapter = addressAdapter
