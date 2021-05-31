@@ -2,16 +2,12 @@ package com.ameen.e_store.ui.activity
 
 import android.os.Bundle
 import android.util.Log
-import android.view.MenuItem
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
@@ -19,16 +15,18 @@ import com.ameen.e_store.R
 import com.ameen.e_store.data.DummyData
 import com.ameen.e_store.data.local.CartDatabase
 import com.ameen.e_store.data.model.ProductModel
-import com.ameen.e_store.data.model.UserModel
 import com.ameen.e_store.databinding.ActivityMainBinding
 import com.ameen.e_store.repository.ProductRepository
 import com.ameen.e_store.viewmodel.ProductViewModel
 import com.ameen.e_store.viewmodel.ViewModelProductProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationView
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedListener {
 
     private val TAG = "MainActivity"
@@ -44,8 +42,11 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
     //ViewModel
     lateinit var viewModel: ProductViewModel
+
+    @Inject
     lateinit var repository: ProductRepository
 
+    @Inject
     lateinit var db: CartDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,7 +65,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
 
         //init ViewModel
-        db = CartDatabase(this)
+        //db = CartDatabase(this)
         repository = ProductRepository(db)
         viewModel = ViewModelProvider(
             this,
@@ -100,6 +101,7 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
             number = 0
             isVisible = true
         }
+
         viewModel.cartData.observe(this, Observer {
             var counter = 0
             for (item in it) {

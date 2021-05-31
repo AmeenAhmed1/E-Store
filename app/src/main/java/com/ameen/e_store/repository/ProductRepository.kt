@@ -3,8 +3,9 @@ package com.ameen.e_store.repository
 import com.ameen.e_store.data.DummyData
 import com.ameen.e_store.data.local.CartDatabase
 import com.ameen.e_store.data.model.*
+import javax.inject.Inject
 
-class ProductRepository(
+class ProductRepository @Inject constructor(
     val db: CartDatabase
 ) {
 
