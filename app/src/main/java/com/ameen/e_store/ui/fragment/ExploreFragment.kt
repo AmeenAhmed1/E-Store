@@ -1,35 +1,27 @@
 package com.ameen.e_store.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ameen.e_store.R
-import com.ameen.e_store.adapter.ProductsAdapter
 import com.ameen.e_store.adapter.BrandsAdapter
 import com.ameen.e_store.adapter.CategoriesAdapter
+import com.ameen.e_store.adapter.ProductsAdapter
 import com.ameen.e_store.data.model.ProductModel
 import com.ameen.e_store.databinding.FragmentExploreBinding
+import com.ameen.e_store.ui.BaseFragment
 import com.ameen.e_store.ui.activity.MainActivity
 import com.ameen.e_store.viewmodel.ProductViewModel
 
-class ExploreFragment : Fragment(R.layout.fragment_explore) {
+class ExploreFragment : BaseFragment<FragmentExploreBinding>() {
 
     private val TAG = "ExploreFragment"
 
     //ViewModels
     lateinit var productsViewModel: ProductViewModel
-
-    //Binding
-    private var _binding: FragmentExploreBinding? = null
-    private val binding get() = _binding!!
 
     //RecyclerView
     private lateinit var categoriesAdapter: CategoriesAdapter
@@ -37,35 +29,14 @@ class ExploreFragment : Fragment(R.layout.fragment_explore) {
     private lateinit var brandsAdapter: BrandsAdapter
     private lateinit var recommendedAdapter: ProductsAdapter
 
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentExploreBinding
+        get() = FragmentExploreBinding::inflate
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentExploreBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        Log.i(TAG, "onViewCreated: ")
-
-        _binding = FragmentExploreBinding.bind(view)
-
+    override fun setupOnViewCreated() {
         productsViewModel = (activity as MainActivity).viewModel
-
         initViewModel()
-
         initRecycler()
     }
-
 
     private fun initViewModel() {
 

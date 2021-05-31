@@ -64,6 +64,7 @@
                 app:srcCompat="@drawable/ic_add" />
 
             <TextView
+                android:id="@+id/itemCountText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

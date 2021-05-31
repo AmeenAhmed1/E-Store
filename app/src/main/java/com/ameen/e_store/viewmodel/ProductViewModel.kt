@@ -1,22 +1,27 @@
 package com.ameen.e_store.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.ameen.e_store.data.model.BrandModel
-import com.ameen.e_store.data.model.CategoriesModel
-import com.ameen.e_store.data.model.ProductModel
-import com.ameen.e_store.data.model.UserModel
+import com.ameen.e_store.data.model.*
 import com.ameen.e_store.repository.ProductRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ProductViewModel(private val productRepository: ProductRepository) : ViewModel() {
+class ProductViewModel @Inject constructor(
+    private val productRepository: ProductRepository
+) : ViewModel() {
+
+    private val TAG = "ProductViewModel"
 
     val categoriesData: MutableLiveData<MutableList<CategoriesModel>> = MutableLiveData()
     val productsData: MutableLiveData<MutableList<ProductModel>> = MutableLiveData()
     val brandsData: MutableLiveData<MutableList<BrandModel>> = MutableLiveData()
     val recommendedData: MutableLiveData<MutableList<ProductModel>> = MutableLiveData()
     val userData: MutableLiveData<UserModel> = MutableLiveData()
+    val cartData: MutableLiveData<List<ProductModel>> = MutableLiveData()
 
     init {
         getCategories()
@@ -49,5 +54,32 @@ class ProductViewModel(private val productRepository: ProductRepository) : ViewM
     fun getUserData() = viewModelScope.launch {
         val result = productRepository.getUser()
         userData.postValue(result)
+    }
+
+    fun getCartData() = viewModelScope.launch {
+        Log.i(TAG, "getCartData: ${recommendedData.value}")
+        val result = productRepository.getCart(recommendedData.value!!)
+        cartData.postValue(result)
+    }
+
+
+    fun saveCartItem(product: ProductModel) = viewModelScope.launch {
+        productRepository.saveCartItem(product)
+    }
+
+    fun insertCategories(categories: List<CategoriesModel>) = viewModelScope.launch {
+        productRepository.insertCategories(categories)
+    }
+
+    fun insertBrands(brands: List<BrandModel>) = viewModelScope.launch {
+        productRepository.insertBrands(brands)
+    }
+
+    fun insertReviews(reviews: List<ReviewModel>) = viewModelScope.launch {
+        productRepository.insertReviews(reviews)
+    }
+
+    fun insertUser(user: UserModel) = viewModelScope.launch {
+        productRepository.insertUser(user)
     }
 }
