@@ -1,25 +1,19 @@
 package com.ameen.e_store.ui.fragment
 
-import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ameen.e_store.R
 import com.ameen.e_store.adapter.CartAdapter
 import com.ameen.e_store.databinding.FragmentCartBinding
+import com.ameen.e_store.ui.BaseFragment
 import com.ameen.e_store.ui.activity.MainActivity
 import com.ameen.e_store.viewmodel.ProductViewModel
 
-class CartFragment : Fragment(R.layout.fragment_cart) {
+class CartFragment : BaseFragment<FragmentCartBinding>() {
 
     private val TAG = "CartFragment"
-
-    private var _binding: FragmentCartBinding? = null
-    val binding get() = _binding
 
     //ViewModel
     lateinit var productViewModel: ProductViewModel
@@ -27,30 +21,17 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
     //Adapter
     lateinit var cartAdapter: CartAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentCartBinding
+        get() = FragmentCartBinding::inflate
 
+    override fun setupOnViewCreated() {
+        initViewModel()
+        initFragment()
+    }
+
+    private fun initViewModel() {
         productViewModel = (activity as MainActivity).viewModel
         productViewModel.getCartData()
-
-        _binding = FragmentCartBinding.inflate(inflater, container, false)
-        return binding!!.root
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        _binding = FragmentCartBinding.bind(view)
-
-        initFragment()
 
         productViewModel.cartData.observe(viewLifecycleOwner, Observer { resultList ->
             cartAdapter.diff.submitList(resultList)

@@ -15,17 +15,14 @@ import com.ameen.e_store.adapter.ReviewAdapter
 import com.ameen.e_store.data.DummyData
 import com.ameen.e_store.data.model.ProductModel
 import com.ameen.e_store.databinding.FragmentProductDetailsBinding
+import com.ameen.e_store.ui.BaseFragment
 import com.ameen.e_store.ui.activity.MainActivity
 import com.bumptech.glide.Glide
 import kotlinx.coroutines.launch
 
-class DetailsFragment : Fragment(R.layout.fragment_product_details) {
+class DetailsFragment : BaseFragment<FragmentProductDetailsBinding>() {
 
     private val TAG = "DetailsFragment"
-
-    //Binding
-    private var _binding: FragmentProductDetailsBinding? = null
-    private val binding get() = _binding!!
 
     //Sent args
     private val args: DetailsFragmentArgs by navArgs()
@@ -34,17 +31,11 @@ class DetailsFragment : Fragment(R.layout.fragment_product_details) {
     //Adapter
     private lateinit var reviewAdapter: ReviewAdapter
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        _binding = FragmentProductDetailsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentProductDetailsBinding
+        get() = FragmentProductDetailsBinding::inflate
+
+    override fun setupOnViewCreated() {
 
         selectedProduct = args.productDetails
 
@@ -86,12 +77,6 @@ class DetailsFragment : Fragment(R.layout.fragment_product_details) {
         //init the reviews
         initReviewRatingRecycler()
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
-
 
     private fun initReviewRatingRecycler() {
         reviewAdapter = ReviewAdapter()

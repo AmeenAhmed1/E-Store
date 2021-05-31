@@ -3,30 +3,19 @@ package com.ameen.e_store.ui.fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.ameen.e_store.R
 import com.ameen.e_store.data.model.UserModel
 import com.ameen.e_store.databinding.FragmentAccountBinding
-import com.ameen.e_store.repository.ProductRepository
+import com.ameen.e_store.ui.BaseFragment
 import com.ameen.e_store.ui.activity.MainActivity
 import com.ameen.e_store.viewmodel.ProductViewModel
-import com.ameen.e_store.viewmodel.ViewModelProductProvider
-import kotlinx.coroutines.launch
 
-class AccountFragment : Fragment(R.layout.fragment_account) {
+class AccountFragment : BaseFragment<FragmentAccountBinding>() {
 
     private val TAG = "AccountFragment"
-
-    //Binding
-    private var _binding: FragmentAccountBinding? = null
-    val binding get() = _binding
 
     //User args.
     //private val args: AccountFragmentArgs by navArgs()
@@ -35,22 +24,15 @@ class AccountFragment : Fragment(R.layout.fragment_account) {
     //ViewModel
     lateinit var viewModel: ProductViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentAccountBinding
+        get() = FragmentAccountBinding::inflate
 
-        //init ViewModel
+    override fun setupOnViewCreated() {
         initViewModel()
-
-        _binding = FragmentAccountBinding.inflate(inflater, container, false)
-        return binding!!.root
+        initViews()
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
+    private fun initViews() {
         Log.i(TAG, "onViewCreated: $user")
 
         binding?.apply {
